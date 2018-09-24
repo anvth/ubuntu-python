@@ -9,13 +9,13 @@ else
 export BASE=ubuntu:18.04
 export ARCH=amd64
 endif
-export IMAGE_NAME=rcarmo/ubuntu-python
+export IMAGE_NAME=quay.io/hellofresh/crm
 export VCS_REF=`git rev-parse --short HEAD`
-export VCS_URL=https://github.com/rcarmo/ubuntu-python
+export VCS_URL=https://github.com/anvth/ubuntu-python
 export BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"`
 export MAJOR_VERSION=3.7
 export PYTHON_VERSION=3.7.0
-export CORES=`cat /proc/cpuinfo | grep processor | wc -l`
+export CORES=`sysctl -n hw.ncpu`
 
 all: build-userland build build-onbuild push
 
